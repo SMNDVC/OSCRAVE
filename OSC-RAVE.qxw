@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace>
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="SimpleDesk">
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>4.13.1</Version>
+  <Author>Simon Dovicovic</Author>
+ </Creator>
+ <Engine>
+  <InputOutputMap>
+   <BeatGenerator BeatType="Disabled" BPM="0"/>
+   <Universe Name="Universe 1" ID="0">
+    <Input Plugin="OSC" UID="127.0.0.1" Line="0" Profile="Generic OSC"/>
+    <Feedback Plugin="OSC" UID="192.168.68.70" Line="5">
+     <PluginParameters outputIP="192.168.68.1" outputPort="7700"/>
+    </Feedback>
+   </Universe>
+   <Universe Name="Universe 2" ID="1"/>
+   <Universe Name="Universe 3" ID="2"/>
+   <Universe Name="Universe 4" ID="3"/>
+  </InputOutputMap>
+  <Fixture>
+   <Manufacturer>Generic</Manufacturer>
+   <Model>Generic</Model>
+   <Mode>4 Channel</Mode>
+   <ID>0</ID>
+   <Name>Dimmer #1</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>4</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Generic</Manufacturer>
+   <Model>Generic</Model>
+   <Mode>4 Channel</Mode>
+   <ID>1</ID>
+   <Name>Dimmer #2</Name>
+   <Universe>0</Universe>
+   <Address>4</Address>
+   <Channels>4</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Generic</Manufacturer>
+   <Model>Generic</Model>
+   <Mode>4 Channel</Mode>
+   <ID>2</ID>
+   <Name>Dimmer #3</Name>
+   <Universe>0</Universe>
+   <Address>8</Address>
+   <Channels>4</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Showtec</Manufacturer>
+   <Model>Club Par 12-4 RGBW</Model>
+   <Mode>9 Channel</Mode>
+   <ID>3</ID>
+   <Name>Club Par 12-4 RGBW #1</Name>
+   <Universe>0</Universe>
+   <Address>29</Address>
+   <Channels>9</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Showtec</Manufacturer>
+   <Model>Club Par 12-4 RGBW</Model>
+   <Mode>9 Channel</Mode>
+   <ID>4</ID>
+   <Name>Club Par 12-4 RGBW #2</Name>
+   <Universe>0</Universe>
+   <Address>39</Address>
+   <Channels>9</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Showtec</Manufacturer>
+   <Model>Club Par 12-6 RGBWAUV</Model>
+   <Mode>11 Channel</Mode>
+   <ID>5</ID>
+   <Name>Club Par 12-6 RGBWAUV #1</Name>
+   <Universe>0</Universe>
+   <Address>49</Address>
+   <Channels>11</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Showtec</Manufacturer>
+   <Model>Club Par 12-6 RGBWAUV</Model>
+   <Mode>11 Channel</Mode>
+   <ID>6</ID>
+   <Name>Club Par 12-6 RGBWAUV #2</Name>
+   <Universe>0</Universe>
+   <Address>61</Address>
+   <Channels>11</Channels>
+  </Fixture>
+  <FixtureGroup ID="0">
+   <Name>Club par row</Name>
+   <Size X="4" Y="1"/>
+   <Head X="0" Y="0" Fixture="3">0</Head>
+   <Head X="1" Y="0" Fixture="4">0</Head>
+   <Head X="2" Y="0" Fixture="5">0</Head>
+   <Head X="3" Y="0" Fixture="6">0</Head>
+  </FixtureGroup>
+  <FixtureGroup ID="1">
+   <Name>Club par column</Name>
+   <Size X="1" Y="4"/>
+   <Head X="0" Y="0" Fixture="3">0</Head>
+   <Head X="0" Y="1" Fixture="5">0</Head>
+   <Head X="0" Y="2" Fixture="4">0</Head>
+   <Head X="0" Y="3" Fixture="6">0</Head>
+  </FixtureGroup>
+  <Function ID="0" Type="Scene" Name="Main Light ON">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="0">0,200,1,200,2,200,3,0</FixtureVal>
+   <FixtureVal ID="1">0,200,1,200,2,200,3,0</FixtureVal>
+   <FixtureVal ID="2">0,200,1,200,2,0,3,0</FixtureVal>
+  </Function>
+  <Function ID="1" Type="Scene" Name="Strobe">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">5,50</FixtureVal>
+   <FixtureVal ID="4">5,50</FixtureVal>
+   <FixtureVal ID="5">7,50</FixtureVal>
+   <FixtureVal ID="6">7,50</FixtureVal>
+  </Function>
+  <Function ID="2" Type="Scene" Name="Club Par ON" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">0,20</FixtureVal>
+   <FixtureVal ID="4">0,20</FixtureVal>
+   <FixtureVal ID="5">0,20</FixtureVal>
+   <FixtureVal ID="6">0,20</FixtureVal>
+  </Function>
+  <Function ID="3" Type="Scene" Name="Strobe OFF">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">5,0</FixtureVal>
+   <FixtureVal ID="4">5,0</FixtureVal>
+   <FixtureVal ID="5">7,0</FixtureVal>
+   <FixtureVal ID="6">7,0</FixtureVal>
+  </Function>
+  <Function ID="11" Type="Chaser" Name="Club Par 4 multicolor">
+   <Speed FadeIn="0" FadeOut="0" Duration="4294967294"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <SpeedModes FadeIn="Default" FadeOut="Default" Duration="Common"/>
+   <Step Number="0" FadeIn="0" Hold="0" FadeOut="0">16</Step>
+   <Step Number="1" FadeIn="0" Hold="0" FadeOut="0">26</Step>
+   <Step Number="2" FadeIn="0" Hold="0" FadeOut="0">17</Step>
+   <Step Number="3" FadeIn="0" Hold="0" FadeOut="0">19</Step>
+   <Step Number="4" FadeIn="0" Hold="0" FadeOut="0">20</Step>
+   <Step Number="5" FadeIn="0" Hold="0" FadeOut="0">21</Step>
+   <Step Number="6" FadeIn="0" Hold="0" FadeOut="0">22</Step>
+   <Step Number="7" FadeIn="0" Hold="0" FadeOut="0">23</Step>
+   <Step Number="8" FadeIn="0" Hold="0" FadeOut="0">24</Step>
+   <Step Number="9" FadeIn="0" Hold="0" FadeOut="0">25</Step>
+  </Function>
+  <Function ID="16" Type="Scene" Name="Random Scene 1" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,14,2,87,3,200,4,255</FixtureVal>
+   <FixtureVal ID="4">1,78,2,132,3,46,4,169</FixtureVal>
+   <FixtureVal ID="5">1,99,2,240,3,144,5,11</FixtureVal>
+   <FixtureVal ID="6">1,210,2,33,3,80,5,247</FixtureVal>
+  </Function>
+  <Function ID="17" Type="Scene" Name="Random Scene 2" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,255,2,11,3,0,4,121</FixtureVal>
+   <FixtureVal ID="4">1,10,2,155,3,88,4,200</FixtureVal>
+   <FixtureVal ID="5">1,129,2,9,3,255,5,144</FixtureVal>
+   <FixtureVal ID="6">1,15,2,200,3,177,5,222</FixtureVal>
+  </Function>
+  <Function ID="19" Type="Scene" Name="Random Scene 3" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,42,2,199,3,150,4,24</FixtureVal>
+   <FixtureVal ID="4">1,66,2,99,3,211,4,0</FixtureVal>
+   <FixtureVal ID="5">1,181,2,51,3,205,5,33</FixtureVal>
+   <FixtureVal ID="6">1,255,2,255,3,130,5,76</FixtureVal>
+  </Function>
+  <Function ID="20" Type="Scene" Name="Random Scene 4" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,186,2,55,3,55,4,234</FixtureVal>
+   <FixtureVal ID="4">1,255,2,0,3,1,4,17</FixtureVal>
+   <FixtureVal ID="5">1,2,2,90,3,90,5,200</FixtureVal>
+   <FixtureVal ID="6">1,66,2,201,3,100,5,255</FixtureVal>
+  </Function>
+  <Function ID="21" Type="Scene" Name="Random Scene 5" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,210,2,210,3,210,4,210</FixtureVal>
+   <FixtureVal ID="4">1,0,2,109,3,255,4,33</FixtureVal>
+   <FixtureVal ID="5">1,1,2,180,3,89,5,99</FixtureVal>
+   <FixtureVal ID="6">1,45,2,160,3,99,5,123</FixtureVal>
+  </Function>
+  <Function ID="22" Type="Scene" Name="Random Scene 6" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,15,2,243,3,111,4,76</FixtureVal>
+   <FixtureVal ID="4">1,89,2,66,3,200,4,140</FixtureVal>
+   <FixtureVal ID="5">1,209,2,0,3,9,5,255</FixtureVal>
+   <FixtureVal ID="6">1,255,2,199,3,199,5,0</FixtureVal>
+  </Function>
+  <Function ID="23" Type="Scene" Name="Random Scene 7" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,80,2,144,3,244,4,17</FixtureVal>
+   <FixtureVal ID="4">1,222,2,111,3,55,4,55</FixtureVal>
+   <FixtureVal ID="5">1,5,2,120,3,240,5,240</FixtureVal>
+   <FixtureVal ID="6">1,255,2,80,3,127,5,99</FixtureVal>
+  </Function>
+  <Function ID="24" Type="Scene" Name="Random Scene 8" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,2,2,99,3,99,4,99</FixtureVal>
+   <FixtureVal ID="4">1,88,2,222,3,13,4,135</FixtureVal>
+   <FixtureVal ID="5">1,99,2,66,3,4,5,155</FixtureVal>
+   <FixtureVal ID="6">1,0,2,210,3,210,5,170</FixtureVal>
+  </Function>
+  <Function ID="25" Type="Scene" Name="Random Scene 9" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,255,2,255,3,255,4,255</FixtureVal>
+   <FixtureVal ID="4">1,111,2,111,3,111,4,111</FixtureVal>
+   <FixtureVal ID="5">1,222,2,222,3,200,5,222</FixtureVal>
+   <FixtureVal ID="6">1,99,2,99,3,99,5,0</FixtureVal>
+  </Function>
+  <Function ID="26" Type="Scene" Name="Random Scene 10" Path="Club par">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="3">1,35,2,177,3,77,4,234</FixtureVal>
+   <FixtureVal ID="4">1,0,2,0,3,65,4,255</FixtureVal>
+   <FixtureVal ID="5">1,210,2,30,3,31,5,47</FixtureVal>
+   <FixtureVal ID="6">1,189,2,166,3,88,5,44</FixtureVal>
+  </Function>
+  <Monitor DisplayMode="0" ShowLabels="0">
+   <Font>Arial,12,-1,5,50,0,0,0,0,0</Font>
+   <ChannelStyle>0</ChannelStyle>
+   <ValueStyle>0</ValueStyle>
+   <Grid Width="5" Height="3" Depth="5" Units="0"/>
+  </Monitor>
+ </Engine>
+ <VirtualConsole>
+  <Frame Caption="">
+   <Appearance>
+    <FrameStyle>None</FrameStyle>
+    <ForegroundColor>Default</ForegroundColor>
+    <BackgroundColor>Default</BackgroundColor>
+    <BackgroundImage>None</BackgroundImage>
+    <Font>Default</Font>
+   </Appearance>
+   <SoloFrame Caption="" ID="5">
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <WindowState Visible="False" X="425" Y="455" Width="225" Height="120"/>
+    <AllowChildren>True</AllowChildren>
+    <AllowResize>True</AllowResize>
+    <ShowHeader>True</ShowHeader>
+    <ShowEnableButton>True</ShowEnableButton>
+    <Mixing>False</Mixing>
+    <Collapsed>False</Collapsed>
+    <Disabled>False</Disabled>
+    <Button Caption="Strobe" ID="6" Icon="">
+     <WindowState Visible="False" X="0" Y="0" Width="115" Height="120"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="1"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+     <Input Universe="0" Channel="18799"/>
+    </Button>
+    <Button Caption="Strobe Off" ID="2" Icon="">
+     <WindowState Visible="False" X="110" Y="0" Width="115" Height="120"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="3"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+     <Input Universe="0" Channel="24583"/>
+    </Button>
+   </SoloFrame>
+   <Button Caption="Main Light ON" ID="0" Icon="">
+    <WindowState Visible="False" X="355" Y="145" Width="135" Height="120"/>
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="0"/>
+    <Action>Toggle</Action>
+    <Intensity Adjust="False">100</Intensity>
+   </Button>
+   <Slider Caption="Slider 1" ID="1" WidgetStyle="Slider" InvertedAppearance="false">
+    <WindowState Visible="False" X="170" Y="165" Width="60" Height="200"/>
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Input Universe="0" Channel="14807"/>
+    <SliderMode ValueDisplayStyle="Exact" ClickAndGoType="None">Playback</SliderMode>
+    <Level LowLimit="0" HighLimit="255" Value="0"/>
+    <Playback>
+     <Function>0</Function>
+    </Playback>
+   </Slider>
+   <CueList Caption="Cue list" ID="3">
+    <WindowState Visible="False" X="660" Y="455" Width="300" Height="220"/>
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Chaser>11</Chaser>
+    <NextPrevBehavior>0</NextPrevBehavior>
+    <Next>
+     <Input Universe="0" Channel="4182"/>
+    </Next>
+    <Previous/>
+    <Playback/>
+    <Stop/>
+   </CueList>
+   <Button Caption="Club Par ON" ID="4" Icon="">
+    <WindowState Visible="False" X="310" Y="455" Width="115" Height="120"/>
+    <Appearance>
+     <FrameStyle>None</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Function ID="2"/>
+    <Action>Toggle</Action>
+    <Intensity Adjust="False">100</Intensity>
+   </Button>
+  </Frame>
+  <Properties>
+   <Size Width="1920" Height="1080"/>
+   <GrandMaster ChannelMode="Intensity" ValueMode="Reduce" SliderMode="Normal"/>
+  </Properties>
+ </VirtualConsole>
+ <SimpleDesk>
+  <Engine/>
+ </SimpleDesk>
+</Workspace>
