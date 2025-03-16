@@ -1,0 +1,4 @@
+pactl load-module module-combine-sink sink_name=combined slaves=$(pactl list short sinks | grep -i airpods | awk '{print $2}') sink_properties=device.description=Combined
+pactl load-module module-loopback source=combined.monitor latency_msec=30
+
+pip install aubio pyaudio numpy python-osc scipy

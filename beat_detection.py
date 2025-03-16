@@ -195,13 +195,31 @@ def main():
     p = pyaudio.PyAudio()
     device_index = get_input_device_index()
 
-    # Open audio stream
+    monitor_device = next(
+        (
+            i for i in range(p.get_device_count())
+            if "monitor" in p.get_device_info_by_index(i)["name"].lower()
+            and p.get_device_info_by_index(i)["max_input_channels"] > 0
+        ),
+        None
+    )
+
+    if monitor_device is not None:
+        dev_info = p.get_device_info_by_index(monitor_device)
+        print(f"Found monitor device: index={monitor_device}, name={dev_info['name']}")
+        chosen_device_index = monitor_device
+    else:
+        print("No monitor device found; using default device index from get_input_device_index().")
+        dev_info = p.get_device_info_by_index(device_index)
+        print(f"Default device: index={device_index}, name={dev_info['name']}")
+        chosen_device_index = device_index
+
     stream = p.open(
         format=pyaudio.paFloat32,
         channels=config.CHANNELS,
         rate=config.SAMPLE_RATE,
         input=True,
-        input_device_index=device_index,
+        input_device_index=chosen_device_index,
         frames_per_buffer=config.PYAUDIO_READ_SIZE
     )
 
